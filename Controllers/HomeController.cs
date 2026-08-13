@@ -8,11 +8,11 @@ namespace MyFirstWebsite.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ProductDB _db;
+    private readonly IProductRepository _products;
 
-    public HomeController(ProductDB db)
+    public HomeController(IProductRepository products)
     {
-        _db = db;
+        _products = products;
     }
 
     public IActionResult Index()
@@ -38,19 +38,22 @@ public class HomeController : Controller
 
     [HttpGet("Home/Product/{id}")]
     public async Task<IActionResult> Product(int id){
-        var product = await _db.Products.FirstOrDefaultAsync(product => product.Id == id);
+        var product = await _products.GetByIdAsync(id);
 
         return View(product);
     }
 
     [HttpGet]
-    public IActionResult Product()
+    public async Task<IActionResult> Product()
     {
-        var product = new Product
-        {
-            Name = "Sample Product",
-            Price = 19.99m
-        };
+        var product = await _db.Products.LastOrDefaultAsync();
+        if (product == null){
+            product = new Product
+            {
+                Name = "Sample Product",
+                Price = 19.99m
+            };
+        }
         return View(product);
     }
 

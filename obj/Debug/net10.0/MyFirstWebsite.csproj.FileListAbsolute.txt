@@ -134,4 +134,5 @@ C:\Users\roman\MyConsoleApp\MyFirstWebsite\bin\Debug\net10.0\runtimes\win-x86\na
 C:\Users\roman\MyConsoleApp\MyFirstWebsite\obj\Debug\net10.0\MyFirstWebsite.csproj.AssemblyReference.cache
 C:\Users\roman\MyConsoleApp\MyFirstWebsite\obj\Debug\net10.0\MyFirstWebsite.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\roman\MyConsoleApp\MyFirstWebsite\obj\Debug\net10.0\MyFirstW.4ACC76BC.Up2Date
-C:\Users\roman\MyConsoleApp\MyFirstWebsite\obj\Debug\net10.0\compressed\irc7i0ztah-{0}-yygetmp82v-yygetmp82v.gz
+C:\Users\roman\MyConsoleApp\MyFirstWebsite\obj\Debug\net10.0\MyFirstWebsite.sourcelink.json
+C:\Users\roman\MyConsoleApp\MyFirstWebsite\obj\Debug\net10.0\compressed\irc7i0ztah-{0}-cvq89bfv5h-cvq89bfv5h.gz

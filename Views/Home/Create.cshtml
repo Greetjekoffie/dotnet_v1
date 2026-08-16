@@ -1,10 +1,12 @@
+@model MyFirstWebsite.ViewModels.CreateProductViewModel
+
 @{
     ViewData["Title"] = "Create Product";
 }
 
 <h1>Create Product</h1>
 
-<form action="/product" method="post" >
+<form asp-action="Create" method="post" enctype="multipart/form-data">
     <p>
         <label for="name">Name: </label>
         <input type="text" id="name" name="name" />
@@ -15,7 +17,13 @@
         <input type="number" id="price" name="price" />
     </p>
 
+    <p>
+        <label asp-for="FileUpload"></label>
+        <input asp-for="FileUpload" type="file" />
+    </p>
+
     <p class="button">
         <button type="submit">Create Product</button>
     </p>
+    
 </form>

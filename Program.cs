@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using MyFirstWebsite.Models;
+using Minio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,19 @@ builder.Services.AddSwaggerGen(c =>
          Description = "Making the Products you love",
          Version = "v1" });
 });
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ProductService>();
+
+var endpoint = "localhost:9000";
+var accessKey = "minioadmin";
+var secretKey = "minioadmin123";
+
+builder.Services.AddMinio(configureClient => configureClient
+   .WithEndpoint(endpoint)
+   .WithCredentials(accessKey, secretKey)
+   .WithSSL(false)
+.Build());
 
 var app = builder.Build();
 

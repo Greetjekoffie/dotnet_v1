@@ -1,7 +1,13 @@
-@model MyFirstWebsite.Models.Product
+@model IEnumerable<MyFirstWebsite.Models.Product>
 
-<h1>@Model.Name</h1>
-
-<p>Price: €@Model.Price</p>
-
-<img src="@Url.Action("GetImage", "Home", new { productId = Model.Id })" />
+<div class="row">
+    @foreach(var product in Model){
+        <div class="card" style="width: 18rem; margin: 1rem">
+        <img src="@Url.Action("GetImage", "Home", new { productId = product.Id })" class="card-img-top" alt="item image">
+        <div class="card-body">
+            <b class="card-title" style="font-size: 18px; display: block; text-align: center">@product.Name</b>
+            <p class="card-text">Price: €@product.Price</p>
+        </div>
+        </div>
+    }
+</div>

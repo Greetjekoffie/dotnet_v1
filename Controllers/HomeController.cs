@@ -68,16 +68,8 @@ public class HomeController : Controller
     public async Task<IActionResult> Product()
     {
         var products = await _products.GetAllAsync();
-        if (products == null || !products.Any()){
-            return View( new Product
-            {
-                Id = -1,
-                Name = "Sample Product",
-                Price = 19.99m
-            });
-        }
 
-        return View(products.LastOrDefault());
+        return View(products);
     }
 
     public async Task<IActionResult> GetImage(int productId)

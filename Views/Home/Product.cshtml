@@ -7,7 +7,15 @@
         <div class="card-body">
             <b class="card-title" style="font-size: 18px; display: block; text-align: center">@product.Name</b>
             <p class="card-text">Price: €@product.Price</p>
+            <div style="display: flex;">
+                <button style="margin-left: auto;" onClick="updateCart(@product.Id)">
+                    <i id="cart-icon-@product.Id" class="bi bi-cart-plus"></i>
+                </button>
+            </div>
         </div>
         </div>
     }
 </div>
+
+
+<i class="bi bi-cart-check-fill"></i>

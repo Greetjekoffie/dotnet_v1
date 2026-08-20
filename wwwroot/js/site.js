@@ -28,4 +28,22 @@
 //     window.open(`/Home/Product/${product.id}`, "_self");
 // })
 
+var shoppingCart = [] 
+localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
 
+function updateCart(id) {
+    var currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
+    const shoppingIcon = document.getElementById(`cart-icon-${id}`);
+
+    if (shoppingIcon.classList.contains("bi-cart-plus")){
+        shoppingIcon.classList.replace("bi-cart-plus", "bi-cart-check-fill")
+        currentShoppingCart.push(id)
+    } else {
+        shoppingIcon.classList.replace("bi-cart-check-fill", "bi-cart-plus")
+        currentShoppingCart.splice(currentShoppingCart.indexOf(id), 1)
+    }
+
+    localStorage.setItem("shoppingCart", JSON.stringify(currentShoppingCart))
+
+
+}
